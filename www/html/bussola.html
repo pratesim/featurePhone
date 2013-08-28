@@ -2,7 +2,20 @@
 <html>
 	<body>
 		<div data-role="page">
-				
+			<script>
+				function onDeviceReady(){
+					navigator.compass.getCurrentHeading(onSuccess, onError);
+				}
+				function onSuccess(heading){
+					var content = document.getElementById("content");
+					content.innerHTML = "Stai puntato il telefono a " + heading.magneticHeading + "°<br>";
+				}
+				function onError(){
+					var content = document.getElementById("content");
+					content.innerHTML = "Impossibile leggere i dati della bussola. Ritenta.";
+				}
+				onDeviceReady();
+			</script>	
 		 	<div data-role="header">
 				<h3>Bussola</h3>
 			</div>
