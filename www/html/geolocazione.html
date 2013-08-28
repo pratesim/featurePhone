@@ -3,7 +3,29 @@
 
 	<body>
 		<div data-role="page">
-				
+			<script>
+				var onSuccess = function(position) {
+			    	document.getElementById("content").innerHTML = 
+			    	  'Latitudine: '          + position.coords.latitude          + '<br>' +
+			          'Longitudine: '         + position.coords.longitude         + '<br>' +
+			          'Altitudine: '          + position.coords.altitude          + '<br>' +
+			          'Accuratezza: '          + position.coords.accuracy          + '<br>' +
+			          'Accuratezza Altitudine: ' + position.coords.altitudeAccuracy  + '<br>' +
+			          'Gradi: '               + position.coords.heading           + '<br>' +
+			          'Velocità: '            + position.coords.speed             + '<br>' +
+			          'Timestamp: '           + position.timestamp                + '<br>';
+				};
+			
+				// onError Callback receives a PositionError object
+				//
+				function onError(error) {
+				    document.getElementById("content") = 
+				    	  'Codice errore: '    + error.code    + '<br>' +
+				          'Messaggio errore: ' + error.message + '<br>';
+				}
+		
+				navigator.geolocation.getCurrentPosition(onSuccess, onError);
+			</script>
 		 	<div data-role="header">
 				<h3>Geolocazione</h3>
 			</div>
