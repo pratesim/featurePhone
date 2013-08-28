@@ -2,12 +2,23 @@
 <html>
 
 	<body>
+		<script>
+			function printInfo(){
+				var content = document.getElementById("content");
+				content.innerHTML = "Device Name: " + device.name + "<br>" +
+									"Device UUID: " + device.uuid + "<br>" + 
+									"Device Model: " + device.model + "<br>" + 
+									"Device Version: " + device.version + "<br>";
+			}
+			printInfo();
+		</script>
+	
 		<div data-role="page">
+				
+		 	<div data-role="header">
+				<h3>Info Device</h3>
+			</div>
 			
-	 	<div data-role="header">
-			<h3>Info Device</h3>
-		</div>
-		
 		<div id="content" data-role="content">
 			
 					

@@ -2,13 +2,7 @@
 <html>
 	<body>
 	 <div data-role="page">
-		
-		
 		<script type="text/javascript">
-			document.addEventListener("deviceready", onDeviceReady, false);
-			function onDeviceReady(){
-				navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
-			}
 			function onSuccess(acceleration){
 				var content = document.getElementById("content");
 				content.innerHTML = "X: " + acceleration.x + '<br>' + 
@@ -20,7 +14,7 @@
 				var content = document.getElementById("content");
 				content.innerHTML = "Lettura Accelerometro fallita. Ritenta";
 			}
-			
+			navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
 		</script>
 	 	<div data-role="header">
 			<h3>Accelerometro</h3>
