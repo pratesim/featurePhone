@@ -24,7 +24,7 @@
 				          'Messaggio errore: ' + error.message + '<br>';
 				}
 		
-				navigator.geolocation.getCurrentPosition(onSuccess, onError);
+				navigator.geolocation.getCurrentPosition(onSuccess, onError, {frequency: 3000, enableHighAccuracy: true});
 			</script>
 		 	<div data-role="header">
 				<h3>Geolocazione</h3>
