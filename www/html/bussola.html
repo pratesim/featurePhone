@@ -12,7 +12,10 @@
 					content.innerHTML = "Impossibile leggere i dati della bussola. Ritenta.";
 				}
 				var wid = navigator.compass.watchHeading(onSuccess, onError);
-				$(this).bind("pageremove", function(){navigator.compass.clearWatch(wid)});
+				if (firstimeBussola === true){
+					$(this).bind("pageremove", function(){navigator.compass.clearWatch(wid)});
+					firstimeBussola = false;
+				}
 			</script>	
 		 	<div data-role="header">
 				<h3>Bussola</h3>
