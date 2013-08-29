@@ -11,14 +11,14 @@
 					var content = document.getElementById("content");
 					content.innerHTML = "Impossibile leggere i dati della bussola. Ritenta.";
 				}
-				navigator.compass.getCurrentHeading(onSuccess, onError);
+				navigator.compass.watchHeading(onSuccess, onError);
 			</script>	
 		 	<div data-role="header">
 				<h3>Bussola</h3>
 			</div>
 			
-			<div id="content" data-role="content">
-				
+			<div data-role="content">
+				<div  id="content" ></div>
 						
 			</div>
 		 </div>
