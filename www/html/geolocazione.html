@@ -24,7 +24,8 @@
 				          'Messaggio errore: ' + error.message + '<br>';
 				}
 		
-				navigator.geolocation.watchPosition(onSuccess, onError, {frequency: 3000, enableHighAccuracy: true});
+				var wid = navigator.geolocation.watchPosition(onSuccess, onError, {frequency: 3000, enableHighAccuracy: true});
+				$(this).bind("pageremove", function(){navigator.geolocation.clearWatch(wid)});
 			</script>
 		 	<div data-role="header">
 				<h3>Geolocazione</h3>

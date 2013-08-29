@@ -11,7 +11,8 @@
 					var content = document.getElementById("content");
 					content.innerHTML = "Impossibile leggere i dati della bussola. Ritenta.";
 				}
-				navigator.compass.watchHeading(onSuccess, onError);
+				var wid = navigator.compass.watchHeading(onSuccess, onError);
+				$(this).bind("pageremove", function(){navigator.compass.clearWatch(wid)});
 			</script>	
 		 	<div data-role="header">
 				<h3>Bussola</h3>
