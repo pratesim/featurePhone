@@ -14,7 +14,8 @@
 				var content = document.getElementById("content");
 				content.innerHTML = "Lettura Accelerometro fallita. Ritenta";
 			}
-			navigator.accelerometer.watchAcceleration(onSuccess, onError, {frequency: 1000});
+			var wid = navigator.accelerometer.watchAcceleration(onSuccess, onError, {frequency: 1000});
+			$(document).bind("pagehide", function(){navigator.accelerometer.clearWatch(wid)});
 		</script>
 	 	<div data-role="header">
 			<h3>Accelerometro</h3>
