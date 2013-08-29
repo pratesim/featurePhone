@@ -5,17 +5,20 @@
 		<div data-role="page">
 			<script>
 				var onSuccess = function(position) {
-					var altitudine = position.coords.altitude == null? "Attendere segnale gps...": "Altitudine: " + position.coords.altitude;
-					var accuratezzaAlt = position.coords.altitudeAccuracy == null? "Non disponibile per android": 'Accuratezza Altitudine: ' + position.coords.altitudeAccuracy;
-					var gradi = position.coords.heading == null? "Attendere segnale gps...": 'Gradi: ' + position.coords.heading;
-					var velo = position.coords.speed == null? "Attendere segnale gps...": 'Velocit&agrave: ' + position.coords.speed;
+					var altitudine = position.coords.altitude == null? "Attendere segnale gps...": position.coords.altitude;
+					var accuratezzaAlt = position.coords.altitudeAccuracy == null? "Non disponibile per android": position.coords.altitudeAccuracy;
+					var gradi = position.coords.heading == null? "Attendere segnale gps...": position.coords.heading;
+					var velo = position.coords.speed == null? "Attendere segnale gps...": position.coords.speed;
 					
 			    	document.getElementById("content").innerHTML = 
-			    	  'Latitudine: '          + position.coords.latitude          + '<br>' +
-			          'Longitudine: '         + position.coords.longitude         + '<br>' +
-			          'Accuratezza: ' 		  + position.coords.accuracy  		  + '<br>' +
-			          altitudine + '<br>' + accuratezzaAlt + '<br>' + gradi + '<br>' + velo + '<br>' + 
-			          'Timestamp: '           + position.timestamp                + '<br>';
+			    	  "Latitudine: "             + position.coords.latitude          + '<br>' +
+			          "Longitudine: "            + position.coords.longitude         + '<br>' +
+			          "Accuratezza: " 		     + position.coords.accuracy  		 + '<br>' +
+			          "Altitudine: "             + altitudine                        + '<br>' +
+			          "Accuratezza Altitudine: " + accuratezzaAlt                    + '<br>' + 
+			          "Gradi: "                  + gradi                             + '<br>' + 
+			          "Velocit&agrave: "         + velo                              + '<br>' + 
+			          "Timestamp: "              + position.timestamp                + '<br>';
 				};
 			
 				// onError Callback receives a PositionError object
