@@ -5,14 +5,16 @@
 		<div data-role="page">
 			<script>
 				var onSuccess = function(position) {
+					var altitudine = position.coords.altitude == null? "Attendere segnale gps...": "Altitudine: " + position.coords.altitude;
+					var accuratezzaAlt = position.coords.altitudeAccuracy == null? "Non disponibile per android": 'Accuratezza Altitudine: ' + position.coords.altitudeAccuracy;
+					var gradi = position.coords.heading == null? "Attendere segnale gps...": 'Gradi: ' + position.coords.heading;
+					var velo = position.coords.speed == null? "Attendere segnale gps...": 'Velocit&agrave: ' + position.coords.speed;
+					
 			    	document.getElementById("content").innerHTML = 
 			    	  'Latitudine: '          + position.coords.latitude          + '<br>' +
 			          'Longitudine: '         + position.coords.longitude         + '<br>' +
-			          'Altitudine: '          + position.coords.altitude          + '<br>' +
-			          'Accuratezza: '          + position.coords.accuracy          + '<br>' +
-			          'Accuratezza Altitudine: ' + position.coords.altitudeAccuracy  + '<br>' +
-			          'Gradi: '               + position.coords.heading           + '<br>' +
-			          'Velocit&agrave: '            + position.coords.speed             + '<br>' +
+			          'Accuratezza: ' 		  + position.coords.accuracy  		  + '<br>' +
+			          altitudine + '<br>' + accuratezzaAlt + '<br>' + gradi + '<br>' + velo + '<br>' + 
 			          'Timestamp: '           + position.timestamp                + '<br>';
 				};
 			
