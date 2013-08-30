@@ -15,10 +15,7 @@
 				content.innerHTML = "Lettura Accelerometro fallita. Ritenta";
 			}
 			var wid = navigator.accelerometer.watchAcceleration(onSuccess, onError, {frequency: 1000});
-			if (firstimeAccelerometer === true){
-				$(this).bind("pageremove", function(){navigator.accelerometer.clearWatch(wid)});
-				firstime = false;
-			}
+			$(this).one("pageremove", function(){navigator.accelerometer.clearWatch(wid)});
 		</script>
 	 	<div data-role="header">
 			<h3>Accelerometro</h3>

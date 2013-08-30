@@ -30,10 +30,8 @@
 				}
 		
 				var wid = navigator.geolocation.watchPosition(onSuccess, onError, {frequency: 3000, enableHighAccuracy: true});
-				if (firstimeGeoloc === true){
-					$(this).bind("pageremove", function(){navigator.geolocation.clearWatch(wid)});
-					firstimeGeoloc === false;
-				}
+				$(this).one("pageremove", function(){navigator.geolocation.clearWatch(wid)});
+
 			</script>
 		 	<div data-role="header">
 				<h3>Geolocazione</h3>
