@@ -31,7 +31,7 @@
 				          'Messaggio errore: ' + error.message + '<br>';
 				}
 		
-				var wid = navigator.geolocation.watchPosition(onSuccess, onError, {maximumAge: 3000, timeout: 5000, enableHighAccuracy: true});
+				var wid = navigator.geolocation.watchPosition(onSuccess, onError);
 				/*$(this).one("pageremove", function(){navigator.geolocation.clearWatch(wid)});*/
 
 			</script>
