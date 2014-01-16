@@ -5,7 +5,7 @@
 		<div data-role="page">
 			<script src="../js/index.js"></script>
 			<script>
-				app.wid = navigator.geolocation.watchPosition(app.onSuccess, app.onError);
+				app.wid = navigator.geolocation.watchPosition(app.onSuccess, app.onError, {enableHighAccuracy: true, timeout: 15000});
 				/*$(this).one("pageremove", function(){navigator.geolocation.clearWatch(wid)});*/
 			</script>
 		 	<div data-role="header">
