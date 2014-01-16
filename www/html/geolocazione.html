@@ -20,7 +20,7 @@
 			          "Velocit&agrave: "         + velo                              + '<br>' + 
 			          "Timestamp: "              + position.timestamp                + '<br>';
 			        
-			        navigator.geolocation.clearWatch(wid);
+			        
 				};
 			
 				// onError Callback receives a PositionError object
@@ -31,8 +31,8 @@
 				          'Messaggio errore: ' + error.message + '<br>';
 				}
 		
-				var wid = navigator.geolocation.watchPosition(onSuccess, onError, {enableHighAccuracy: true});
-				$(this).one("pageremove", function(){navigator.geolocation.clearWatch(wid)});
+				var wid = navigator.geolocation.watchPosition(onSuccess, onError, {maximumAge: 3000, timeout: 5000, enableHighAccuracy: true});
+				/*$(this).one("pageremove", function(){navigator.geolocation.clearWatch(wid)});*/
 
 			</script>
 		 	<div data-role="header">
