@@ -3,35 +3,10 @@
 
 	<body>
 		<div data-role="page">
+			<script src="../js/index.js"
 			<script>
-				var onSuccess = function(position) {
-					var altitudine = position.coords.altitude == null? "Attendere segnale gps...": position.coords.altitude;
-					var accuratezzaAlt = position.coords.altitudeAccuracy == null? "Non disponibile per android": position.coords.altitudeAccuracy;
-					var gradi = position.coords.heading == null? "Attendere segnale gps...": position.coords.heading;
-					var velo = position.coords.speed == null? "Attendere segnale gps...": position.coords.speed;
-					
-			    	document.getElementById("content").innerHTML = 
-			    	  "Latitudine: "             + position.coords.latitude          + '<br>' +
-			          "Longitudine: "            + position.coords.longitude         + '<br>' +
-			          "Accuratezza: " 		     + position.coords.accuracy  		 + '<br>' +
-			          "Altitudine: "             + altitudine                        + '<br>' +
-			          "Accuratezza Altitudine: " + accuratezzaAlt                    + '<br>' + 
-			          "Gradi: "                  + gradi                             + '<br>' + 
-			          "Velocit&agrave: "         + velo                              + '<br>' + 
-			          "Timestamp: "              + position.timestamp                + '<br>';
-			        
-			        
-				};
-			
-				// onError Callback receives a PositionError object
-				//
-				function onError(error) {
-				    document.getElementById("content") = 
-				    	  'Codice errore: '    + error.code    + '<br>' +
-				          'Messaggio errore: ' + error.message + '<br>';
-				}
-		
-				var wid = navigator.geolocation.watchPosition(onSuccess, onError);
+				
+				app.wid = navigator.geolocation.watchPosition(app.onSuccess, app.onError);
 				/*$(this).one("pageremove", function(){navigator.geolocation.clearWatch(wid)});*/
 
 			</script>
