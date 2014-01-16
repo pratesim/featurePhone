@@ -3,12 +3,10 @@
 
 	<body>
 		<div data-role="page">
-			<script src="../js/index.js"
+			<script src="../js/index.js"></script>
 			<script>
-				
 				app.wid = navigator.geolocation.watchPosition(app.onSuccess, app.onError);
 				/*$(this).one("pageremove", function(){navigator.geolocation.clearWatch(wid)});*/
-
 			</script>
 		 	<div data-role="header">
 				<h3>Geolocazione</h3>
